@@ -1,206 +1,486 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta
+			name="description"
+			content="Color Generator is a simple tool to generate random color palettes easily in your browser. Lock colors, save palettes, download the palette as an image, or share with friends!"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="57x57"
+			href="./assets/favicon/apple-icon-57x57.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="60x60"
+			href="./assets/favicon/apple-icon-60x60.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="72x72"
+			href="./assets/favicon/apple-icon-72x72.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="76x76"
+			href="./assets/favicon/apple-icon-76x76.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="114x114"
+			href="./assets/favicon/apple-icon-114x114.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="120x120"
+			href="./assets/favicon/apple-icon-120x120.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="144x144"
+			href="./assets/favicon/apple-icon-144x144.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="152x152"
+			href="./assets/favicon/apple-icon-152x152.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="./assets/favicon/apple-icon-180x180.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="./assets/favicon/android-icon-192x192.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./assets/favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="96x96"
+			href="./assets/favicon/favicon-96x96.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="./assets/favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="./assets/favicon/manifest.json" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta
+			name="msapplication-TileImage"
+			content="./assets/favicon/ms-icon-144x144.png"
+		/>
+		<meta name="theme-color" content="#ffffff" />
+		<link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="./assets/css/app.css" />
+		<title>Color Generator</title>
+	</head>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Color Generator is a simple tool to generate random color palettes easily in your browser. Lock colors, save palettes, download the palette as an image, or share with friends!" />
-    <link rel="apple-touch-icon" sizes="57x57" href="./assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="./assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="./assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="./assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="./assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="./assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="./assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="./assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./assets/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/app.css">
-    <title>Color Generator</title>
-</head>
+	<body onload="init()" class="custom-bg">
+		<nav class="navbar navbar-expand-lg navbar-dark custom-bg fixed-top">
+			<a class="navbar-brand" href="#">Color Generator</a>
 
-<body onload="init()" class="custom-bg">
+			<ul class="navbar-nav flex-row mr-0 ml-auto">
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						href="https://github.com/christian-cleberg/color-generator"
+						title="View Source Code"
+						><i class="fas fa-code mx-2"></i
+					></a>
+				</li>
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						href="#"
+						onclick="saveImage()"
+						title="Save as Image"
+						><i class="far fa-image mx-2"></i
+					></a>
+				</li>
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						href="#"
+						data-toggle="modal"
+						data-target="#editColorModal"
+						title="Edit Color"
+						><i class="fas fa-edit mx-2"></i
+					></a>
+				</li>
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						href="#"
+						data-toggle="modal"
+						data-target="#savedPalettesModal"
+						title="Save Palette"
+						><i class="far fa-heart mx-2 text-danger"></i
+					></a>
+				</li>
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						href="#"
+						onclick="regenerate()"
+						title="Regenerate Colours"
+						><i class="fas fa-redo text-success mx-2"></i
+					></a>
+				</li>
+				<li class="nav-item">
+					<a
+						class="nav-link"
+						href="#"
+						onclick="switchTheme()"
+						title="Switch Theme"
+					>
+						<i class="far fa-moon mx-2"></i>
+						<i class="fas fa-sun mx-2 d-none"></i>
+					</a>
+				</li>
+			</ul>
+		</nav>
 
-    <nav class="navbar navbar-expand-lg navbar-dark custom-bg fixed-top">
-        <a class="navbar-brand" href="#">Color Generator</a>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="color-column-labels text-white col-4 col-lg-2">
+					<div class="color-rgb-label">RGB:</div>
+					<div class="color-hex-label">HEX:</div>
+					<div class="color-cmyk-label">CMYK:</div>
+				</div>
+				<div class="color-column col-4 col-lg-2" data-locked="false">
+					<div class="color-column-toolbar text-center w-100">
+						<a
+							href="#"
+							class="color-column-lock fas fa-lock-open"
+							title="Lock Color"
+						></a>
+						<a
+							href="#"
+							class="color-column-regenerate fas fa-redo"
+							title="Regenerate Color"
+						></a>
+					</div>
+					<div
+						class="color-value color-rgb"
+						data-format="rgb"
+						title="Copy RGB"
+					></div>
+					<div
+						class="color-value color-hex"
+						data-format="hex"
+						title="Copy HEX"
+					></div>
+					<div
+						class="color-value color-cmyk"
+						data-format="cmyk"
+						title="Copy CMYK"
+					></div>
+				</div>
+				<div class="color-column col-4 col-lg-2" data-locked="false">
+					<div class="color-column-toolbar text-center w-100">
+						<a
+							href="#"
+							class="color-column-lock fas fa-lock-open"
+							title="Lock Color"
+						></a>
+						<a
+							href="#"
+							class="color-column-regenerate fas fa-redo"
+							title="Regenerate Color"
+						></a>
+					</div>
+					<div
+						class="color-value color-rgb"
+						data-format="rgb"
+						title="Copy RGB"
+					></div>
+					<div
+						class="color-value color-hex"
+						data-format="hex"
+						title="Copy HEX"
+					></div>
+					<div
+						class="color-value color-cmyk"
+						data-format="cmyk"
+						title="Copy CMYK"
+					></div>
+				</div>
+				<div class="color-column col-4 col-lg-2" data-locked="false">
+					<div class="color-column-toolbar text-center w-100">
+						<a
+							href="#"
+							class="color-column-lock fas fa-lock-open"
+							title="Lock Color"
+						></a>
+						<a
+							href="#"
+							class="color-column-regenerate fas fa-redo"
+							title="Regenerate Color"
+						></a>
+					</div>
+					<div
+						class="color-value color-rgb"
+						data-format="rgb"
+						title="Copy RGB"
+					></div>
+					<div
+						class="color-value color-hex"
+						data-format="hex"
+						title="Copy HEX"
+					></div>
+					<div
+						class="color-value color-cmyk"
+						data-format="cmyk"
+						title="Copy CMYK"
+					></div>
+				</div>
+				<div class="color-column col-4 col-lg-2" data-locked="false">
+					<div class="color-column-toolbar text-center w-100">
+						<a
+							href="#"
+							class="color-column-lock fas fa-lock-open"
+							title="Lock Color"
+						></a>
+						<a
+							href="#"
+							class="color-column-regenerate fas fa-redo"
+							title="Regenerate Color"
+						></a>
+					</div>
+					<div
+						class="color-value color-rgb"
+						data-format="rgb"
+						title="Copy RGB"
+					></div>
+					<div
+						class="color-value color-hex"
+						data-format="hex"
+						title="Copy HEX"
+					></div>
+					<div
+						class="color-value color-cmyk"
+						data-format="cmyk"
+						title="Copy CMYK"
+					></div>
+				</div>
+				<div class="color-column col-4 col-lg-2" data-locked="false">
+					<div class="color-column-toolbar text-center w-100">
+						<a
+							href="#"
+							class="color-column-lock fas fa-lock-open"
+							title="Lock Color"
+						></a>
+						<a
+							href="#"
+							class="color-column-regenerate fas fa-redo"
+							title="Regenerate Color"
+						></a>
+					</div>
+					<div
+						class="color-value color-rgb"
+						data-format="rgb"
+						title="Copy RGB"
+					></div>
+					<div
+						class="color-value color-hex"
+						data-format="hex"
+						title="Copy HEX"
+					></div>
+					<div
+						class="color-value color-cmyk"
+						data-format="cmyk"
+						title="Copy CMYK"
+					></div>
+				</div>
+			</div>
+		</div>
 
-        <ul class="navbar-nav flex-row mr-0 ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="https://git.sr.ht/~kaizoku/color-generator" title="View Source Code"><i class="fas fa-code mx-2"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" onclick="saveImage()" title="Save as Image"><i class="far fa-image mx-2"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#editColorModal" title="Edit Color"><i class="fas fa-edit mx-2"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#savedPalettesModal" title="Save Palette"><i class="far fa-heart mx-2 text-danger"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" onclick="regenerate()" title="Regenerate Colours"><i class="fas fa-redo text-success mx-2"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" onclick="switchTheme()" title="Switch Theme">
-                    <i class="far fa-moon mx-2"></i>
-                    <i class="fas fa-sun mx-2 d-none"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
+		<!-- Color Editing Modal -->
+		<div
+			class="modal fade"
+			id="editColorModal"
+			tabindex="-1"
+			role="dialog"
+			aria-labelledby="editColorModalTitle"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="editColorModalTitle">
+							Add RGB Color
+						</h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="inputColor">New Color</label>
+							<input
+								type="text"
+								class="form-control"
+								id="inputColor"
+								aria-describedby="inputHelp"
+								placeholder="rgb(15,200,60)"
+							/>
+							<small id="inputHelp" class="form-text"
+								>You must input a valid RGB color value.</small
+							>
+						</div>
+						<div class="form-group">
+							<label for="inputColumn">Column to Change</label>
+							<select class="form-control" id="inputColumn">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+							</select>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-success"
+							id="submitNewColor"
+						>
+							Save changes
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./modal -->
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="color-column-labels text-white col-4 col-lg-2">
-                <div class="color-rgb-label">RGB: </div>
-                <div class="color-hex-label">HEX: </div>
-                <div class="color-cmyk-label">CMYK: </div>
-            </div>
-            <div class="color-column col-4 col-lg-2" data-locked="false">
-                <div class="color-column-toolbar text-center w-100">
-                    <a href="#" class="color-column-lock fas fa-lock-open" title="Lock Color"></a>
-                    <a href="#" class="color-column-regenerate fas fa-redo" title="Regenerate Color"></a>
-                </div>
-                <div class="color-value color-rgb" data-format="rgb" title="Copy RGB"></div>
-                <div class="color-value color-hex" data-format="hex" title="Copy HEX"></div>
-                <div class="color-value color-cmyk" data-format="cmyk" title="Copy CMYK"></div>
-            </div>
-            <div class="color-column col-4 col-lg-2" data-locked="false">
-                <div class="color-column-toolbar text-center w-100">
-                    <a href="#" class="color-column-lock fas fa-lock-open" title="Lock Color"></a>
-                    <a href="#" class="color-column-regenerate fas fa-redo" title="Regenerate Color"></a>
-                </div>
-                <div class="color-value color-rgb" data-format="rgb" title="Copy RGB"></div>
-                <div class="color-value color-hex" data-format="hex" title="Copy HEX"></div>
-                <div class="color-value color-cmyk" data-format="cmyk" title="Copy CMYK"></div>
-            </div>
-            <div class="color-column col-4 col-lg-2" data-locked="false">
-                <div class="color-column-toolbar text-center w-100">
-                    <a href="#" class="color-column-lock fas fa-lock-open" title="Lock Color"></a>
-                    <a href="#" class="color-column-regenerate fas fa-redo" title="Regenerate Color"></a>
-                </div>
-                <div class="color-value color-rgb" data-format="rgb" title="Copy RGB"></div>
-                <div class="color-value color-hex" data-format="hex" title="Copy HEX"></div>
-                <div class="color-value color-cmyk" data-format="cmyk" title="Copy CMYK"></div>
-            </div>
-            <div class="color-column col-4 col-lg-2" data-locked="false">
-                <div class="color-column-toolbar text-center w-100">
-                    <a href="#" class="color-column-lock fas fa-lock-open" title="Lock Color"></a>
-                    <a href="#" class="color-column-regenerate fas fa-redo" title="Regenerate Color"></a>
-                </div>
-                <div class="color-value color-rgb" data-format="rgb" title="Copy RGB"></div>
-                <div class="color-value color-hex" data-format="hex" title="Copy HEX"></div>
-                <div class="color-value color-cmyk" data-format="cmyk" title="Copy CMYK"></div>
-            </div>
-            <div class="color-column col-4 col-lg-2" data-locked="false">
-                <div class="color-column-toolbar text-center w-100">
-                    <a href="#" class="color-column-lock fas fa-lock-open" title="Lock Color"></a>
-                    <a href="#" class="color-column-regenerate fas fa-redo" title="Regenerate Color"></a>
-                </div>
-                <div class="color-value color-rgb" data-format="rgb" title="Copy RGB"></div>
-                <div class="color-value color-hex" data-format="hex" title="Copy HEX"></div>
-                <div class="color-value color-cmyk" data-format="cmyk" title="Copy CMYK"></div>
-            </div>
-        </div>
-    </div>
+		<!-- Save Palettes Modal -->
+		<div
+			class="modal fade"
+			id="savedPalettesModal"
+			tabindex="-1"
+			role="dialog"
+			aria-labelledby="savedPalettesModalTitle"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="savedPalettesModalTitle">
+							Save Your Palettes
+						</h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-row">
+							<div class="col-md-9">
+								<input
+									type="text"
+									class="form-control"
+									id="inputPaletteName"
+									placeholder="A Unique Palette Name"
+								/>
+							</div>
+							<div class="col-md-3">
+								<button
+									class="btn btn-success w-100"
+									onclick="savePalette()"
+								>
+									Save
+								</button>
+							</div>
+						</div>
+						<!-- ./form-row -->
+						<hr />
+						<div class="my-4" id="savedPalettesBody">
+							<p class="lead text-center">Saved Palettes</p>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-danger"
+							onclick="deleteAllPalettes()"
+						>
+							Delete Palettes
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./modal -->
 
-    <!-- Color Editing Modal -->
-    <div class="modal fade" id="editColorModal" tabindex="-1" role="dialog" aria-labelledby="editColorModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editColorModalTitle">Add RGB Color</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="inputColor">New Color</label>
-                        <input type="text" class="form-control" id="inputColor" aria-describedby="inputHelp" placeholder="rgb(15,200,60)" />
-                        <small id="inputHelp" class="form-text">You must input a valid RGB color value.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputColumn">Column to Change</label>
-                        <select class="form-control" id="inputColumn">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="submitNewColor">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div><!-- ./modal -->
+		<!-- Save Image Modal -->
+		<div
+			class="modal fade"
+			id="saveImageModal"
+			tabindex="-1"
+			role="dialog"
+			aria-labelledby="saveImageModalTitle"
+			aria-hidden="true"
+		>
+			<div
+				class="modal-dialog modal-xl modal-dialog-centered"
+				role="document"
+			>
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="saveImageModalTitle">
+							Palette Image
+						</h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-success" role="alert">
+							<h6 class="modal-subtitle m-0">
+								<strong>Pro-tip:</strong> Right click to save
+								your image.
+							</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ./modal -->
 
-    <!-- Save Palettes Modal -->
-    <div class="modal fade" id="savedPalettesModal" tabindex="-1" role="dialog" aria-labelledby="savedPalettesModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="savedPalettesModalTitle">Save Your Palettes</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-row">
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="inputPaletteName" placeholder="A Unique Palette Name" />
-                        </div>
-                        <div class="col-md-3">
-                            <button class="btn btn-success w-100" onclick="savePalette()">Save</button>
-                        </div>
-                    </div><!-- ./form-row -->
-                    <hr>
-                    <div class="my-4" id="savedPalettesBody">
-                        <p class="lead text-center">Saved Palettes</p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="deleteAllPalettes()">Delete Palettes</button>
-                </div>
-            </div>
-        </div>
-    </div><!-- ./modal -->
-
-    <!-- Save Image Modal -->
-    <div class="modal fade" id="saveImageModal" tabindex="-1" role="dialog" aria-labelledby="saveImageModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="saveImageModalTitle">Palette Image</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="alert alert-success" role="alert">
-                        <h6 class="modal-subtitle m-0"><strong>Pro-tip:</strong> Right click to save your image.</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!-- ./modal -->
-
-    <!-- JavaScript -->
-    <script src="./assets/js/jquery-3.5.1.min.js"></script>
-    <script src="./assets/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/html2canvas.min.js"></script>
-    <script src="./assets/js/app.js"></script>
-</body>
-
+		<!-- JavaScript -->
+		<script src="./assets/js/jquery-3.5.1.min.js"></script>
+		<script src="./assets/js/bootstrap.bundle.min.js"></script>
+		<script src="./assets/js/html2canvas.min.js"></script>
+		<script src="./assets/js/app.js"></script>
+	</body>
 </html>

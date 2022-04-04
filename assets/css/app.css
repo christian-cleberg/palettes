@@ -1,156 +1,176 @@
 @import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
 
 body {
-  background: white;
-  transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
+	background: white;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
 }
 
 .custom-bg {
-  background-color: #161616
+	background-color: #161616;
 }
 
 .nav-link:focus {
-  outline: none
+	outline: none;
 }
 
 .far.fa-moon,
 .fas.fa-sun {
-  color: gold
+	color: gold;
 }
 
 .container-fluid {
-  align-items: center;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  width: 100%
+	align-items: center;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	width: 100%;
 }
 
 .row {
-  height: 75%;
-  width: 75%
+	height: 75%;
+	width: 75%;
 }
 
 .col-lg-2 {
-  align-items: center;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center
+	align-items: center;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .color-column-toolbar {
-  font-size: .8rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  padding: .5rem;
-  background-color: rgba(0, 0, 0, .5);
+	font-size: 0.8rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	padding: 0.5rem;
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 .color-column-toolbar a {
-  color: white;
-  text-decoration: none;
-  padding: 0 7px;
+	color: white;
+	text-decoration: none;
+	padding: 0 7px;
 }
 
-.color-column-toolbar a:hover, .color-column-toolbar a:focus {
-  color: rgba(255, 255, 255, .7);
+.color-column-toolbar a:hover,
+.color-column-toolbar a:focus {
+	color: rgba(255, 255, 255, 0.7);
 }
 
-.color-rgb, .color-hex, .color-rgb-label, .color-hex-label {
-  padding-bottom: 1.5rem;
+.color-rgb,
+.color-hex,
+.color-rgb-label,
+.color-hex-label {
+	padding-bottom: 1.5rem;
 }
 
-.color-rgb:hover, .color-hex:hover, .color-cmyk:hover {
-  cursor: pointer
+.color-rgb:hover,
+.color-hex:hover,
+.color-cmyk:hover {
+	cursor: pointer;
 }
 
-.color-rgb:active, .color-hex:active, .color-cmyk:active {
-  opacity: 0.5
+.color-rgb:active,
+.color-hex:active,
+.color-cmyk:active {
+	opacity: 0.5;
 }
 
 .toast-alert {
-  bottom: 0;
-  margin: 0 auto 2rem auto;
-  position: fixed;
-  width: 75%
+	bottom: 0;
+	margin: 0 auto 2rem auto;
+	position: fixed;
+	width: 75%;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: lightgray;
+	color: lightgray;
 }
 
 .nav-link {
-  opacity: 0.8;
+	opacity: 0.8;
 }
 
 .nav-link:hover {
-  opacity: 1;
+	opacity: 1;
 }
 
 .col-lg-2 {
-  cursor: default;
+	cursor: default;
 }
 
-.color-value, .color-rgb-label, .color-hex-label, .color-cmyk-label {
-  font-size: 1.5rem;
+.color-value,
+.color-rgb-label,
+.color-hex-label,
+.color-cmyk-label {
+	font-size: 1.5rem;
 }
 
 .palette-image {
-  width: 100%
+	width: 100%;
 }
 
 .modal-header,
 .modal-footer {
-  border-color: #5b5b5b
+	border-color: #5b5b5b;
 }
 
 .modal-content {
-  background-color: #202020;
-  color: #fff
+	background-color: #202020;
+	color: #fff;
 }
 
-.modal-content span, .modal-content span:hover {
-  color: #fff
+.modal-content span,
+.modal-content span:hover {
+	color: #fff;
 }
 
 .modal-content .form-control {
-  background-color: #3b3b3b;
-  border: 1px solid #5b5b5b;
-  color: white
+	background-color: #3b3b3b;
+	border: 1px solid #5b5b5b;
+	color: white;
 }
 
-#inputColor, #inputColumn, #inputColumn:active {
-  background-color: #202020;
-  color: #fff
+#inputColor,
+#inputColumn,
+#inputColumn:active {
+	background-color: #202020;
+	color: #fff;
 }
 
 #inputHelp {
-  color: gold
+	color: gold;
 }
 
 @media (max-width: 768px) {
-  .row {
-    width: 100%
-  }
+	.row {
+		width: 100%;
+	}
 
-  .toast-alert {
-    margin: auto;
-    width: 100%
-  }
+	.toast-alert {
+		margin: auto;
+		width: 100%;
+	}
 
-  .color-value, .color-rgb-label, .color-hex-label, .color-cmyk-label {
-    font-size: 1.25rem;
-  }
+	.color-value,
+	.color-rgb-label,
+	.color-hex-label,
+	.color-cmyk-label {
+		font-size: 1.25rem;
+	}
 }
 
 @media (max-width: 576px) {
-  .color-value, .color-rgb-label, .color-hex-label, .color-cmyk-label {
-    font-size: 1rem;
-  }
+	.color-value,
+	.color-rgb-label,
+	.color-hex-label,
+	.color-cmyk-label {
+		font-size: 1rem;
+	}
 }
