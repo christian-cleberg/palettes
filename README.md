@@ -1,4 +1,4 @@
-# Color Generator
+# Palettes
 
 This app generates 5 random colors using RGB, hex, and CMYK formats. A new
 palette can be generated using the refresh button and colors can be checked
